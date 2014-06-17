@@ -18,7 +18,7 @@ data.in <- read.csv(options[1])
 # melt with defaults
 data.in.melted <- melt(data.in)
  
-# make a plot
+# make a plot with ggplot
 out.plot <- ggplot(data.in.melted,(aes(x=PatientID, y=value))) + 
     geom_point() + 
     stat_sum() +
