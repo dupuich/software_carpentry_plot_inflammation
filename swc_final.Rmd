@@ -1,0 +1,39 @@
+Software Carpentry Final Project
+================================
+
+```{r}
+# basics
+setwd("/Users/jonasd/Desktop/swc/data/")
+gDat <- read.delim("gapminder.txt")
+library('reshape2')
+library('ggplot2')
+
+mycountries <- c("Japan","Argentina","United States")
+# select
+dat <- subset(gDat,country %in% mycountries)
+# or dat <- subset(gDat,c(country=="Japan"|country=="Argentin"|country=="United States"))
+
+ggplot(dat,aes(year, gdpPercap)) +
+ geom_point(aes(color = country)) +
+  facet_wrap(~ country)
+
+```
+
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+
+When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+show me: `r mean(c(2,3,4))`
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+
