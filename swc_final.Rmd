@@ -1,7 +1,7 @@
 Software Carpentry Final Project
 ================================
 
-```{r}
+```{r echo=FALSE}
 # basics
 setwd("/Users/jonasd/Desktop/swc/data/")
 gDat <- read.delim("gapminder.txt")
@@ -19,6 +19,26 @@ ggplot(dat,aes(year, gdpPercap)) +
 
 ```
 
+```{r output     = "asis"}
+# xtable is one option, pander is another
+
+text
+
+```{r}
+# calc mean
+
+aggregate(lifeExp ~ country, dat, FUN = mean)
+aggregate(lifeExp ~ country, dat, FUN = max)
+aggregate(lifeExp ~ country, dat, FUN = min)
+
+
+```
+
+
+ggplot(gDat,aes(x=lifeExp)) + geom_histogram()
+#    facet_wrap(~ country)
+
+ggplot(gDat,aes(x=lifeExp)) + geom_histogram(binwidth=.1)
 
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
